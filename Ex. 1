@@ -1,7 +1,7 @@
 #modify the sleep time - how does it change the rhythm?
 
 
-live_loop :beats do   #creates a "live loop" named ":beats"
-  sample :bd_haus     #loads the sample ":bd_haus"
-  sleep 0.5           #sets the length of the musical event to "0.5" beats
-end                   #ends the loop, tells the computer to restart at the top
+live_loop :bass_drum do   #creates a "live loop" named ":beats"
+  sample :bd_haus         #loads the sample ":bd_haus"
+  sleep 0.5               #sets the length of the musical event to "0.5" beats
+end                       #ends the loop, tells the computer to restart at the top
