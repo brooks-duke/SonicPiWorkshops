@@ -1,0 +1,26 @@
+#modify the sleep time - how does it change the rhythm?
+live_loop :click do
+  sleep 0.125
+end
+
+live_loop :bass_drum, sync: :click do   #creates a "live loop" named ":beats"
+  sample :bd_haus         #loads the sample ":bd_haus"
+  sleep (ring 0.5, 0.25).choose               #sets the length of the musical event to "0.5" beats
+end                       #ends the loop, tells the computer to restart at the top
+
+live_loop :snare, sync: :click do
+  sleep 0.5
+  sample :drum_snare_hard, finish: (ring 0.25, 0.125, 1).choose
+  sleep 0.5
+end
+
+live_loop :hats, sync: :click do
+  sample :drum_cymbal_closed
+  sleep (ring 0.25, 0.125).choose
+end
+
+live_loop :bass_synth, sync: :click do
+  use_synth :fm
+  play (scale :e2, :minor, num_octaves: 2).choose, release: 0.25
+  sleep (ring 0.25, 0.5, 0.25, 1).choose
+end
