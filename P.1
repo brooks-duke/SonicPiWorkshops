@@ -1,0 +1,49 @@
+int num_boxes;
+float x;
+float y;
+
+float r;
+float g;
+float b;
+
+float h;
+float w;
+
+float ro;
+
+void setup(){
+  size(600,600);
+  smooth();
+  rectMode(CENTER);
+  noStroke();
+}
+
+void draw(){
+  background(100);
+  
+  num_boxes = int(map(mouseX, 0, width, 10, 1000));
+  
+  translate(width/2, height/2);
+
+  for (int i=0; i<=num_boxes; i++){
+      rotate(ro);
+    for (int j=0; j<=num_boxes; j++){
+
+    x=(map(i, 0, num_boxes, -width, width));
+    y=(map(j, 0, num_boxes, -height, height));
+    
+    r=(map(i, 0, num_boxes, 100, 255));
+    g=(map(j, 0, num_boxes, 100, 255));
+    b=(map(i, 0, num_boxes, 255, 100));
+    
+    fill(r, g, b);
+    
+    w=(width*2/num_boxes);
+    h=(width*2/num_boxes);
+
+    rect(x, y, w, h);
+
+    }
+  }
+      ro+=(map(mouseY, 0, height, 0.0, 0.005));
+}
